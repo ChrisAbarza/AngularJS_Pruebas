@@ -10,7 +10,7 @@
 		<input type="datetime-local" ng-model="newActv.fecha">
 		<input type="submit" value="Guardar actividad">
 	</form>
-	<button ng-click="cleanActv()">Limpiar</button>
+	<button ng-click="todo = []">Limpiar</button>
 	<ul>
 		<li ng-repeat="actividad in todo">
 			{{actividad.descripcion}} -
