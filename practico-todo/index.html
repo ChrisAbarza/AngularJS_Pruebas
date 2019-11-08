@@ -14,7 +14,7 @@
 	<ul>
 		<li ng-repeat="actividad in todo">
 			{{actividad.descripcion}} -
-			{{actividad.fecha}}
+			{{actividad.fecha | date:"medium"}}
 		</li>
 	</ul>
 
