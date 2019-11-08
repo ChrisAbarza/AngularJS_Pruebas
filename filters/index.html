@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="filter-app">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body ng-controller="filter-controller">
+	{{ mi_html | json }}
+	<p>
+		{{ mi_html.title +" "+ mi_html.body  | filtrar_hola }}
+	</p>
+	<p>
+		{{ costo | currency:'$' }}
+	</p>
+
+<script type="text/javascript" src="../js/angular.min.js" ></script>
+<script type="text/javascript" src="controller.js" ></script>
+</body>
+</html>
