@@ -7,13 +7,13 @@ angular.module("app", [] )
 	.controller('ControllerHTTP', ['$scope','$http', function(e,h){
 		e.posts = [];
 		e.newPost = {};
-		h.get('https://jsonplaceholder.typicode.com/posts')
+		h.get('https://jsonplaceholder.typicode.com/possts')
 			.then(function(response){
 				e.posts = response.data;
 			})
-			,function(err){
-
-			};
+			.catch(function(err){
+				alert(err.status);
+			});
 		e.addPost = function(){
 			h.post('https://jsonplaceholder.typicode.com/posts', {
 				title : e.newPost.title,
@@ -25,8 +25,9 @@ angular.module("app", [] )
 					e.newPost = {};
 
 				})
-				,function(error){
-					console.log(error);
-				};
+				.catch(function(err){
+					alert(err.status);
+					e.newPost = {};
+				});
 		}	
 	}]);
