@@ -7,7 +7,7 @@ angular.module("app", [] )
 	.controller('ControllerHTTP', ['$scope','$http', function(e,h){
 		e.posts = [];
 		e.newPost = {};
-		h.get('https://jsonplaceholder.typicode.com/possts')
+		h.get('https://jsonplaceholder.typicode.com/posts')
 			.then(function(response){
 				e.posts = response.data;
 			})
