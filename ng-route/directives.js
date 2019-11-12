@@ -1,10 +1,4 @@
-/**
-*  Trabajando con directiva autocomplete
-*  
-*
-*	https://codigofacilito.com/videos/curso_angularjs_directivas_personalizadas_parte
-*/
-angular.module('customDirective', [])
+angular.module('customDirective') //sin el segundo parametro por que se está llamando solamente
 	.directive("myAutocomplete",function(){
 		function link(scope,element,attrs){
 			$(element).autocomplete({
@@ -36,26 +30,3 @@ angular.module('customDirective', [])
 			})
 		}
 	})
-	.controller('controlador', ['$scope','$http', function(s,h){
-		s.repos = [];
-		h.get("https://api.github.com/users/ChrisAbarza/repos")
-			.then(function(data){
-				var datos = data.data;
-				s.posts = datos;
-				for(var i = 0; i <= datos.length - 1; i++){
-					var repo = datos[i];
-					s.repos.push(repo.name);
-				}
-			})
-			.catch(function(err){
-					alert(err.status);
-					e.newPost = {};
-			});
-
-		s.optionSelected = function(data){
-			s.$apply(function(){
-				s.main_repo = data;
-			});
-		}
-		
-	}])	
